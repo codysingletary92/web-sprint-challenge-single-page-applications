@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+
 // import axios from 'axios';
 
 const OrderForm = (props) => {
-    const { onChange, form, onSubmit } = props;
-
+    const { onChange, form, onSubmit, errors } = props;
 
     return (
         <div className='orderform' style={{display:'flex', justifyContent:'space-evenly'}}>
+            <div style={{color: 'red'}}>
+                {/* <div>
+                {errors.name}
+                </div>
+                <div>
+                {errors.size}
+                </div> */}
+            </div>
             <form name="memberForm" onSubmit={onSubmit}>
                 <div className='form-body'>
                     <label>Name:
@@ -22,8 +30,8 @@ const OrderForm = (props) => {
                     <br />
                     <br />
                     <label>Size:
-                        <select onChange={onChange} name='size' value={form.size}>
-                            <option value=''>--Select Size--</option>
+                        <select type='select' onChange={onChange} name='size' value={form.size}>
+                            <option value='0'>--Select Size--</option>
                             <option value='1'>Small</option>
                             <option value='2'>Medium</option>
                             <option value='3'>Large</option>
@@ -33,19 +41,19 @@ const OrderForm = (props) => {
                     <br />
                     <label>Toppings: <br />
                         <label>X-tra Cheese
-                            <input type='checkbox' checked={form.xcheese} onChange={onChange} name='xcheese'/>
+                            <input id="xcheese" type='checkbox' checked={form.xcheese} onChange={onChange} name='xcheese'/>
                         </label>
                         <br />
                         <label>Pepperoni
-                            <input type='checkbox' checked={form.pep} name='pep' onChange={onChange}/>
+                            <input type='checkbox' checked={form.pep} name='pep' id='pep' onChange={onChange}/>
                         </label>
                         <br />
                         <label>Sausage
-                            <input type='checkbox' checked={form.saus} name='saus' onChange={onChange}/>
+                            <input type='checkbox' checked={form.saus} name='saus' id='saus' onChange={onChange}/>
                         </label>
                         <br />
                         <label>Bacon
-                            <input type='checkbox' checked={form.bac} name='bac' onChange={onChange}/>
+                            <input type='checkbox' checked={form.bac} name='bac' id='bac' onChange={onChange}/>
                         </label>
                     </label>
                     <br />
