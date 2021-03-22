@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
 const NavBar = () => {
+    
     const history = useHistory();
 
     const onClick = event => {
