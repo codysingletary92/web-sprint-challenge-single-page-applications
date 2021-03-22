@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { Route, Link, Switch } from 'react-router-dom'
+import NavBar from './components/Navbar'
+import OrderForm from './components/OrderForm'
 
 const App = () => {
+  const [form, setForm] = useState({name: '', size: '', toppings: []})
+
+  const onChange = event => {
+    console.log(event.target['name'])
+    
+  }
+
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-      <p>MY NAME IS AWESOME!</p>
-    </>
+    <div className='App'>
+      <NavBar />
+
+      <Switch>
+        <Route exact path='/'>
+          <NavBar />
+          {/* Plus homepage screen */}
+        </Route>
+
+        <Route path='/Pizza'>
+          <OrderForm onChange={onChange} />
+        </Route>
+      </Switch>
+      
+    </div>
   );
 };
 export default App;
